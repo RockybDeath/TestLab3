@@ -15,7 +15,7 @@ public class MainPage {
 
     private WebDriverWait wait;
 
-    @FindBy(xpath = "//a[@class=\"cm-link cm-link__register cm-link__no-decoration js-cm-event js-cm-login-link js-cm-link-ignore-target\"]")
+    @FindBy(xpath = "//a[@class=\"Button Button_color_gray Button_size_l Button_type_link Button_width_default Button_radius_r8 HeaderUserMenu__loginButton\"]")
     private WebElement login;
 
     @FindBy(xpath = "//a[contains(text(), \"Рейтинги\")]")
@@ -81,7 +81,7 @@ public class MainPage {
     }
 
     public void clickLogin(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class=\"cm-link cm-link__register cm-link__no-decoration js-cm-event js-cm-login-link js-cm-link-ignore-target\"]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class=\"Button Button_color_gray Button_size_l Button_type_link Button_width_default Button_radius_r8 HeaderUserMenu__loginButton\"]")));
         login.click();
     }
 

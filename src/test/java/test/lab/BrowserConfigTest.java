@@ -12,10 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserConfigTest {
 
-    public static LoginPage loginPage;
     public static WebDriver driver;
     public static WebDriverWait wait;
-    public static ProfilePage profilePage;
     public static MainPage mainPage;
     public static RatingPage ratingPage;
     public static GamePage gamePage;
@@ -29,8 +27,6 @@ public class BrowserConfigTest {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 30);
         System.setProperty("webdriver.chrome.driver", "$WORKING_DIRECTORY/chromedriver.exe");
-        profilePage = new ProfilePage(driver);
-        loginPage = new LoginPage(driver);
         mainPage = new MainPage(driver);
         ratingPage = new RatingPage(driver);
         gamePage = new GamePage(driver);
@@ -40,7 +36,7 @@ public class BrowserConfigTest {
         communityPage = new CommunityPage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.get("https://www.yaplakal.com/act/Login/CODE/00/?return=");
+        driver.get("https://auto.ru");
     }
 
 }
