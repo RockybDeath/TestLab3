@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class BrowserConfigTest {
@@ -15,26 +14,29 @@ public class BrowserConfigTest {
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static MainPage mainPage;
-    public static RatingPage ratingPage;
-    public static GamePage gamePage;
-    public static ClanPage clanPage;
-    public static MediaPage mediaPage;
-    public static TournamentPage tournamentPage;
-    public static CommunityPage communityPage;
+    public static HistoryPage historyPage;
+    public static CarInfoPage carInfoPage;
+    public static BuyCarPage buyCarPage;
+    public static ReviewCarPage reviewCarPage;
+    public static CarQuickInfoPage carQuickInfoPage;
+    public static DetailsOfCar detailsOfCar;
 
     @BeforeAll
     public static void setup(){
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, 30);
         System.setProperty("webdriver.chrome.driver", "$WORKING_DIRECTORY/chromedriver.exe");
         mainPage = new MainPage(driver);
-        ratingPage = new RatingPage(driver);
-        gamePage = new GamePage(driver);
-        clanPage = new ClanPage(driver);
-        tournamentPage = new TournamentPage(driver);
-        mediaPage = new MediaPage(driver);
-        communityPage = new CommunityPage(driver);
+        historyPage = new HistoryPage(driver);
+        carInfoPage = new CarInfoPage(driver);
+        buyCarPage = new BuyCarPage(driver);
+        detailsOfCar = new DetailsOfCar(driver);
+        reviewCarPage = new ReviewCarPage(driver);
+        carQuickInfoPage = new CarQuickInfoPage(driver);
         driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("https://auto.ru");
     }
